@@ -1,0 +1,412 @@
+/* ================= GLOBAL ================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: #ff416c;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    padding: 40px;
+}
+
+/* ================= CARD (LOGIN / SIGNUP) ================= */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    width: 320px;
+    margin: auto;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+/* ================= INPUT ================= */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+/* ================= BUTTON ================= */
+button {
+    padding: 10px 20px;
+    background: #ff4b2b;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff416c;
+}
+
+/* ================= SEARCH ================= */
+.search-bar {
+    margin: 20px 0;
+}
+
+/* ================= MOVIE LIST ================= */
+.movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ================= MOVIE CARD ================= */
+.movie-card {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    width: 160px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+.movie-poster{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.movie-card{
+    width:180px;
+    background:#1e293b;
+    padding:10px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.movie-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.movie-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
+gap:25px;
+margin-top:30px;
+padding:10px;
+}
+
+.movie-card{
+background:#1e293b;
+padding:15px;
+border-radius:12px;
+text-align:center;
+transition:0.3s;
+}
+
+.movie-card img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.movie-card:hover{
+transform:scale(1.05);
+box-shadow:0px 10px 25px rgba(0,0,0,0.4);
+}
+
+/* ================= CHATBOT ================= */
+
+#chatbot{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:300px;
+    font-size:14px;
+}
+
+#chat-header{
+    background:#ef4444;
+    padding:12px;
+    cursor:pointer;
+    border-radius:10px 10px 0 0;
+}
+
+#chat-body{
+    display:none;
+    background:#020617;
+    height:350px;
+    border-radius:0 0 10px 10px;
+    padding:10px;
+}
+
+#chat-messages{
+    height:270px;
+    overflow-y:auto;
+}
+
+#user-input{
+    width:100%;
+    padding:8px;
+    margin-top:8px;
+}
+/* ================= GENRES ================= */
+.genres a {
+    margin-right: 15px;
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.genres a:hover {
+    text-decoration: underline;
+}
+/* AI recommendation box */
+
+.ai-box{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:15px;
+max-width:500px;
+margin-top:20px;
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.ai-form{
+display:flex;
+gap:15px;
+align-items:center;
+margin-top:15px;
+}
+
+/* mood dropdown */
+
+.mood-select{
+padding:10px 15px;
+border-radius:8px;
+border:none;
+font-size:16px;
+background:#0f172a;
+color:white;
+}
+
+/* AI button */
+
+.ai-btn{
+padding:10px 20px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+background:linear-gradient(45deg,#ff4b2b,#ff416c);
+color:white;
+transition:0.3s;
+}
+
+.ai-btn:hover{
+transform:scale(1.05);
+box-shadow:0 5px 20px rgba(255,65,108,0.5);
+}
+
+
+/* MOVIE CARD */
+
+.movie-card{
+
+background:#1c1c1c;
+border-radius:12px;
+overflow:hidden;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+
+}
+
+.movie-card:hover{
+
+transform:scale(1.07);
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
+
+}
+
+.poster{
+
+width:100%;
+height:300px;
+object-fit:cover;
+
+}
+
+.movie-info{
+
+padding:12px;
+text-align:center;
+color:white;
+
+}
+
+.movie-info h3{
+
+font-size:18px;
+margin-bottom:5px;
+
+}
+
+.movie-info p{
+
+font-size:14px;
+color:#aaa;
+
+}
+
+/* EMPTY WATCHLIST */
+
+.empty-text{
+
+text-align:center;
+margin-top:100px;
+color:#ccc;
+
+}
+
+/* WATCHLIST PAGE */
+
+.watchlist-page{
+padding:40px;
+text-align:center;
+}
+
+.watchlist-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:30px;
+
+}
+
+.watch-card{
+
+background:#1e1e1e;
+padding:15px;
+border-radius:10px;
+color:white;
+transition:0.3s;
+
+}
+
+.watch-card img{
+
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:8px;
+
+}
+
+.watch-card:hover{
+
+transform:scale(1.05);
+
+}
+
+.empty{
+
+font-size:22px;
+margin-top:50px;
+
+}
+
+
+/* PROFILE PAGE */
+
+.profile-container{
+
+display:flex;
+justify-content:center;
+align-items:center;
+padding:60px;
+
+}
+
+.profile-card{
+
+background:#1e1e1e;
+padding:40px;
+border-radius:15px;
+text-align:center;
+color:white;
+width:350px;
+
+}
+
+.avatar{
+
+width:120px;
+height:120px;
+border-radius:50%;
+margin-bottom:15px;
+
+}
+
+.profile-buttons{
+
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:15px;
+
+}
+
+.btn{
+
+background:#ff4c4c;
+padding:10px 20px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+
+}
+
+.btn:hover{
+
+background:#ff2c2c;
+
+}
+
+.logout{
+
+background:#555;
+
+}

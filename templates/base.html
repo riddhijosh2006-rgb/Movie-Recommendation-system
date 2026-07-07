@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CineMatch</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <h2>🎬 CineMatch</h2>
+
+    <ul>
+        {% if session.get('user') %}
+            <li><a href="/">Home</a></li>
+            <li><a href="/webseries">Web Series</a></li>
+            <li><a href="/ai">AI Recommend</a></li>
+            <li><a href="{{ url_for('watchlist') }}">My List</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        {% else %}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+<!-- ================= PAGE CONTENT ================= -->
+<div class="container">
+    {% block content %}
+    {% endblock content %}
+</div>
+
+
+<!-- ================= AI CHATBOT ================= -->
+{% if session.get('user') %}
+
+<div id="chatbot">
+
+    <div id="chat-header" onclick="toggleChat()">
+        🤖 CineMatch AI
+    </div>
+
+    <div id="chat-body">
+        <div id="chat-messages"></div>
+
+        <input type="text"
+               id="user-input"
+               placeholder="Ask movie by mood..."
+               onkeypress="handleEnter(event)">
+    </div>
+
+</div>
+
+{% endif %}
+
+
+<!-- ================= CHATBOT JS ================= -->
+<script>
+
+function toggleChat() {
+    let body = document.getElementById("chat-body");
+    body.style.display =
+        body.style.display === "block" ? "none" : "block";
+}
+
+function handleEnter(event){
+    if(event.key === "Enter"){
+        sendMessage();
+    }
+}
+
+function sendMessage(){
+
+    let input = document.getElementById("user-input");
+    let message = input.value;
+
+    if(message.trim()==="") return;
+
+    let chat = document.getElementById("chat-messages");
+
+    chat.innerHTML +=
+        `<p><b>You:</b> ${message}</p>`;
+
+    fetch("/chatbot",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({message:message})
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        chat.innerHTML +=
+        `<p><b>AI:</b> ${data.reply}</p>`;
+        chat.scrollTop = chat.scrollHeight;
+    });
+
+    input.value="";
+}
+
+</script>
+
+</body>
+</html>

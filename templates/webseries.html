@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🔥 Trending Web Series</h2>
+
+<div class="movie-grid">
+{% for show in trending %}
+<div class="movie-card">
+<img src="{{ show.poster }}">
+<h3>{{ show.title }}</h3>
+<p>{{ show.genre }}</p>
+</div>
+{% endfor %}
+</div>
+
+
+<h2>⭐ Top Rated Series</h2>
+
+<div class="movie-grid">
+{% for show in top_series %}
+<div class="movie-card">
+<img src="{{ show.poster }}">
+<h3>{{ show.title }}</h3>
+<p>{{ show.genre }}</p>
+</div>
+{% endfor %}
+</div>
+
+
+<h2>📺 Popular Series</h2>
+
+<div class="movie-grid">
+{% for show in popular %}
+<div class="movie-card">
+<img src="{{ show.poster }}">
+<h3>{{ show.title }}</h3>
+<p>{{ show.genre }}</p>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}
+

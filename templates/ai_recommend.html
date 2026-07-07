@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🤖 AI Movie Recommendation</h2>
+
+<p>Welcome {{user}}!</p>
+
+<form method="POST">
+
+<select name="mood">
+<option value="happy">😊 Happy</option>
+<option value="sad">😢 Sad</option>
+<option value="excited">🔥 Excited</option>
+<option value="romantic">❤️ Romantic</option>
+<option value="scifi"> Scifi</option>
+
+</select>
+
+<button type="submit">Get AI Recommendation</button>
+
+</form>
+
+<hr>
+
+<div class="movie-grid">
+
+{% for movie in movies %}
+
+<div class="movie-card">
+
+<img src="{{movie.poster}}" width="200">
+
+<h3>{{movie.title}}</h3>
+
+<p>{{movie.genre}}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

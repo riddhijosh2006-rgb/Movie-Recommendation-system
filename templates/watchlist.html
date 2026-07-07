@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="watchlist-page">
+
+<h1>🎬 My Watchlist</h1>
+
+{% if movies %}
+
+<div class="watchlist-grid">
+
+{% for movie in movies %}
+
+<div class="watch-card">
+
+<img src="{{ movie.poster }}">
+
+<h3>{{ movie.title }}</h3>
+
+<p>{{ movie.genre }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% else %}
+
+<p class="empty">Your watchlist is empty 😢</p>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

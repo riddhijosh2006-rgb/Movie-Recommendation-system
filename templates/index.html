@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Welcome {{ session.get('user') }} 👋</h2>
+
+<!-- SEARCH BAR -->
+<form method="POST" action="/search" class="search-bar">
+    <input type="text" name="search" placeholder="Search movie..." required>
+    <button type="submit">Search</button>
+</form>
+
+<!-- GENRES -->
+<h3>Browse by Genre using our AI Recommendation</h3>
+
+<h2>🔥 Trending Movies</h2>
+
+<div class="movie-grid">
+
+{% for movie in trending %}
+
+<div class="movie-card">
+
+<img src="{{ movie.poster }}">
+
+<h3>{{ movie.title }}</h3>
+
+<p>{{ movie.genre }}</p>
+
+<form action="/add_watchlist" method="POST">
+
+<input type="hidden" name="title" value="{{ movie.title }}">
+<input type="hidden" name="poster" value="{{ movie.poster }}">
+<input type="hidden" name="year" value="{{ movie.genre }}">
+
+<button class="watch-btn">+ My List</button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</div>
+<!-- RECOMMENDED / SEARCH RESULT -->
+{% if movies %}
+<h3>Recommended Movies 🎯</h3>
+
+<div class="movie-list">
+    {% for movie in movies %}
+        <div class="movie-card">
+
+            <img src="{{ movie.poster }}"
+                 alt="{{ movie.title }}"
+                 class="movie-poster">
+
+            <h4>{{ movie.title }}</h4>
+            <p>{{ movie.genre }}</p>
+
+        </div>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+{% endblock %}
+
