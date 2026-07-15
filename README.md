@@ -8,7 +8,7 @@ CineMatch is a Flask-based Movie Recommendation System that helps users discover
 
 Finding the right movie can be difficult because thousands of movies are released every year. CineMatch solves this problem by recommending movies based on user preferences and ratings.
 
-This project was developed using Python, Flask, HTML, CSS, JavaScript, SQLite, and the TMDB API.
+This project was developed using Python, Flask, HTML, CSS, JavaScript, SQLite, and the OMDB API.
 
 ---
 
@@ -44,7 +44,7 @@ This project was developed using Python, Flask, HTML, CSS, JavaScript, SQLite, a
 - SQLite
 
 ### API
-- TMDB (The Movie Database) API
+- OMDB (The Movie Database) API
 
 ---
 
@@ -124,7 +124,7 @@ Open the project and replace the API key in the Python file.
 Example
 
 ```python
-TMDB_API_KEY = "YOUR_API_KEY"
+OMDB_API_KEY = "YOUR_API_KEY"
 ```
 
 You can get a free API key from
